@@ -3,11 +3,6 @@ module.exports=function e(t){switch(t&&t.type||null){case"FeatureCollection":ret
 
 
 },{}],2:[function(require,module,exports){
-//linedtextarea
-$(function () {
-    $(".lined").linedtextarea();
-});
-
 //CodeMirror
 var minLines = 3;
 var startingValue = '';
@@ -27,8 +22,7 @@ var tile = L.tileLayer('https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=n
     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
 }).addTo(map);
 
-var layerGroup = L.layerGroup().addTo(map);
-//kada dodam GeoJSON poligone ne radi edit jer je vjerojatno sve u istom feature groupu
+//feature group for displaying editable shapes
 var featureGroup = L.featureGroup().addTo(map);
 
 //hide download button
@@ -116,6 +110,7 @@ $("#convert").click(function () {
     }
 });
 
+//download shapes displayed on map
 $("#download").click(function () {
     var emptyFeatureCollection = {
         "type": "FeatureCollection",
@@ -138,9 +133,8 @@ $("#download").click(function () {
 //https://github.com/Leaflet/Leaflet.draw/issues/187
 //https://github.com/Leaflet/Leaflet.draw/issues/276
 //https://gis.stackexchange.com/questions/237171/making-a-geojson-layer-editable-with-the-leaflet-editable-plugin
-//var leafletDraw = require('leaflet-draw');
 
-
+//drawing, editing and deleting on leaflet map
 var drawControl = new L.Control.Draw({
     draw: {
         circle: false

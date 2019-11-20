@@ -1,9 +1,4 @@
-﻿//linedtextarea
-$(function () {
-    $(".lined").linedtextarea();
-});
-
-//CodeMirror
+﻿//CodeMirror
 var minLines = 3;
 var startingValue = '';
 for (var i = 0; i < minLines; i++) {
