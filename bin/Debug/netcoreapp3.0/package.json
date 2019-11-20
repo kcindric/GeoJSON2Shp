@@ -1,0 +1,26 @@
+{
+  "name": "geojson2shp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify wwwroot/js/site.js -o wwwroot/js/bundle.js",
+    "watch": "watchify wwwroot/js/site.js -o wwwroot/js/bundle.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mapbox/geojsonhint": "^3.0.0",
+    "codemirror": "^5.49.2",
+    "file-saver": "^2.0.2",
+    "geojson-flatten": "^1.0.1",
+    "leaflet-draw": "^1.0.4",
+    "npm": "^6.12.1"
+  },
+  "devDependencies": {
+    "browserify": "^16.5.0",
+    "watchify": "^3.11.1"
+  }
+}

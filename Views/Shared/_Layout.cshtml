@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GeoJSON2Shp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/ae2517b09b.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GeoJSON2Shp</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        @*<li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </li>*@
+                        @*<li class="nav-item">
+
+        </li>*@
+                        @*<li class="nav-item">
+                            <a class="nav-link git-logo" href="#"><i class="fab fa-github"></i></a>
+                        </li>*@
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+           Kristijan Cindrić, 2019.
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link href="~/css/leaflet.css" rel="stylesheet" />
+    <link href="~/css/jquery-linedtextarea.css" rel="stylesheet" />
+    <script src="~/js/leaflet.js"></script>
+    <script src="~/js/leaflet-src.js"></script>
+    <script src="~/js/proj4.js"></script>
+    <script src="~/js/proj4leaflet.js"></script>
+    <script src="~/js/jquery-linedtextarea.js"></script>
+    @*<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.9/leaflet.draw.js"></script>
+    <script src="~/js/codemirror.js"></script>
+    <link href="~/css/codemirror.css" rel="stylesheet" />
+    <script src="~/js/javascript.js"></script>
+    <script src="~/js/bundle.js"></script>
+    <script src="https://unpkg.com/shpjs@latest/dist/shp.js"></script>
+    <script src="~/js/shpwrite.js"></script>
+    <script src="~/js/FileSaver.js"></script>
+    
+
+    @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

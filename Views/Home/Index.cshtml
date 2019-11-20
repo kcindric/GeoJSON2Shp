@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="convert-wrapper row">
+    <div class="paste-wrapper col-xl-5 col-md-12">
+        <form>
+            <div class="form-group">
+                <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="code" id="geojsonText" name="geojsonInput" rows="24"></textarea>
+            </div>
+        </form>
+        <button type="submit" class="btn btn-primary mb-2" id="convert">Convert</button>
+    </div>
+    <div class="map-wrapper col-xl-7 col-md-12">
+        <div id="map"></div>
+        <form>
+            <div class="form-group">
+
+            </div>
+        </form>
+        <div class="show-hide">
+            <button type="submit" class="btn btn-primary mb-2" id="download">Download SHP</button>
+        </div>
+    </div>
+</div>
