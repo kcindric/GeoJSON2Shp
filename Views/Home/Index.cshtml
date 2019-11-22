@@ -1,4 +1,6 @@
-﻿@{
+﻿@model FileModel
+
+@{
     ViewData["Title"] = "GeoJSON2Shp";
 }
 
@@ -11,6 +13,18 @@
             </div>
         </form>
         <button type="submit" class="btn btn-primary mb-2" id="convert">Convert</button>
+        <form enctype="multipart/form-data" asp-controller="home" asp-action="upload">
+            <div class="form-group">
+                <label asp-for="Zip" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <div class="custom-file">
+                        <input asp-for="Zip" class="form-control custom-file-input file-input">
+                        <label class="custom-file-label file-label">Choose file</label>
+                        <button type="submit" class="btn btn-primary mb-2" id="upload">Upload SHP</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="map-wrapper col-xl-7 col-md-12">
         <div id="map"></div>

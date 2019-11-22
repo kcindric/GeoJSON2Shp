@@ -1,4 +1,12 @@
-﻿//CodeMirror
+﻿//upload placeholder
+$(document).ready(function () {
+    $('.file-input').on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).next('.file-label').html(fileName);
+    })
+});
+
+//CodeMirror
 var minLines = 3;
 var startingValue = '';
 for (var i = 0; i < minLines; i++) {

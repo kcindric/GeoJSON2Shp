@@ -3,6 +3,14 @@ module.exports=function e(t){switch(t&&t.type||null){case"FeatureCollection":ret
 
 
 },{}],2:[function(require,module,exports){
+//upload placeholder
+$(document).ready(function () {
+    $('.file-input').on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).next('.file-label').html(fileName);
+    })
+});
+
 //CodeMirror
 var minLines = 3;
 var startingValue = '';
