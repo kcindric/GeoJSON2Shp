@@ -209,3 +209,5 @@ map.on(L.Draw.Event.DELETED, function (event) {
     //$("textarea[name='geojsonInput']").val(geojsonStringBeautify);
     editor.setValue(geojsonStringBeautify);
 });
+
+//ajax

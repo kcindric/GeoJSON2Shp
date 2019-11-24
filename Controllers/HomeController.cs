@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using GeoJSON2Shp.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using GeoJSON2Shp.Models;
-using Microsoft.AspNetCore.Hosting;
+using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace GeoJSON2Shp.Controllers
@@ -14,11 +11,12 @@ namespace GeoJSON2Shp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IHostingEnvironment hostingEnvironment;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public HomeController(ILogger<HomeController> logger, IHostingEnvironment hostingEnvironment)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment)
         {
             _logger = logger;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         public IActionResult Index()
@@ -37,26 +35,30 @@ namespace GeoJSON2Shp.Controllers
             return View();
         }
 
+        [HttpPost]
         public IActionResult Upload(FileModel model)
         {
+            string filePath = null;
             if (ModelState.IsValid)
             {
                 string uniqueFilename = null;
-                if(model.Zip != null)
+                if (model.Zip != null)
                 {
                     //WebRootPath for the relative path of wwwroot
-                    string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "files");
+                    string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "files");
 
                     //for unique names
                     uniqueFilename = Guid.NewGuid().ToString() + "_" + model.Zip.FileName;
 
-                    string filePath = Path.Combine(uploadsFolder, uniqueFilename);
+                    filePath = Path.Combine(uploadsFolder, uniqueFilename);
                     model.Zip.CopyTo(new FileStream(filePath, FileMode.Create));
+
+                    
                 }
 
             }
 
-            return View();
+            return Json(filePath);
         }
     }
 }
