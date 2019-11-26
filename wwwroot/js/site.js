@@ -6,8 +6,6 @@ $(document).ready(function () {
     })
 });
 
-
-
 //CodeMirror
 var minLines = 3;
 var startingValue = '';
@@ -81,21 +79,6 @@ function checkFeatureCollection(geojson) {
 }
 
 //shp to geojson
-$(document).ready(function (relativeFilePath) {
-    var geojsonFromShp = null;
-
-    if (relativeFilePath !== '') {
-        console.log(relativeFilePath);
-        shp(relativeFilePath).then(function (geojson) {
-            console.log('start convert');
-            geojsonFromShp = geojson;
-            console.log('end convert');
-            checkFeatureCollection(geojson);
-        });
-    }
-
-});
-
 function shpToGeojson(relativeFilePath){
     var geojsonFromShp = null;
 
@@ -105,18 +88,27 @@ function shpToGeojson(relativeFilePath){
             console.log('start convert');
             geojsonFromShp = geojson;
             console.log('end convert');
-            checkFeatureCollection(geojson);
+            var geojsonString = JSON.stringify(geojson);
+            if (geojsonString.toLowerCase().indexOf("multi") >= 0) {
+                console.log('multi');
+                let flatten = require('geojson-flatten');
+                var flattened = flatten(geojson);
+                checkFeatureCollection(flattened);
+            }
+            //if geojson doesn't have multi shapes do the same thing but without flattening
+            else {
+                checkFeatureCollection(geojson);
+            }
         });
     }
 
 };
 
-//upload files
-$("#files").change(function (inputId) {
+//upload files and show them on the map
+$("#files").change(function () {
     var input = document.getElementById("files");
     var files = input.files;
     var formData = new FormData();
-
 
     for (var i = 0; i != files.length; i++) {
         formData.append("files", files[i]);
@@ -134,13 +126,24 @@ $("#files").change(function (inputId) {
                 type: "GET",
                 success: function (data) {
                     path = data.filepath;
+                    var deletePath = path;
                     shpToGeojson(path);
+                    $(".show-hide").show();
+
+                    $.ajax({
+                        url: urlDelete,
+                        data: {'deletePath': deletePath },
+                        type: "POST",
+                        success: function (data) {
+                            alert("file deleted");
+                        }
+                    });
                 }
-
-
             });
         }
     });
+
+    
 });
 
 //show pasted geoJSON on map

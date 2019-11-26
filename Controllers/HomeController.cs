@@ -70,6 +70,16 @@ namespace GeoJSON2Shp.Controllers
             return Json(new { filepath=filePathRelative});
         }
 
+        [HttpPost]
+        public void Delete(string deletePath)
+        {
+            string finalPath = Path.Combine(_hostingEnvironment.WebRootPath, deletePath);
+            if (System.IO.File.Exists(finalPath))
+            {
+                System.IO.File.Delete(finalPath);
+            }
+        }
+
         private string EnsureCorrectFilename(string filename)
         {
             if (filename.Contains("\\"))
