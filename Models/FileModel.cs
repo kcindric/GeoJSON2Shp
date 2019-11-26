@@ -9,5 +9,6 @@ namespace GeoJSON2Shp.Models
     public class FileModel
     {
         public IFormFile Zip { get; set; }
+        public string FilePath { get; set; }
     }
 }

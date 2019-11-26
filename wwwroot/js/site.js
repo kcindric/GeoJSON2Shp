@@ -6,6 +6,8 @@ $(document).ready(function () {
     })
 });
 
+
+
 //CodeMirror
 var minLines = 3;
 var startingValue = '';
@@ -77,6 +79,37 @@ function checkFeatureCollection(geojson) {
         beautifyAndAdd(geojson);
     }
 }
+
+//shp to geojson
+$(document).ready(function () {
+    var geojsonFromShp = null;
+
+    if (relativeFilePath !== '') {
+        console.log(relativeFilePath);
+        shp(relativeFilePath).then(function (geojson) {
+            console.log('start convert');
+            geojsonFromShp = geojson;
+            console.log('end convert');
+            checkFeatureCollection(geojson);
+        });
+    }
+
+});
+
+function shpToGeojson(relativeFilePath){
+    var geojsonFromShp = null;
+
+    if (relativeFilePath !== '') {
+        console.log(relativeFilePath);
+        shp(relativeFilePath).then(function (geojson) {
+            console.log('start convert');
+            geojsonFromShp = geojson;
+            console.log('end convert');
+            checkFeatureCollection(geojson);
+        });
+    }
+
+};
 
 //show pasted geoJSON on map
 $("#convert").click(function () {
@@ -209,5 +242,3 @@ map.on(L.Draw.Event.DELETED, function (event) {
     //$("textarea[name='geojsonInput']").val(geojsonStringBeautify);
     editor.setValue(geojsonStringBeautify);
 });
-
-//ajax

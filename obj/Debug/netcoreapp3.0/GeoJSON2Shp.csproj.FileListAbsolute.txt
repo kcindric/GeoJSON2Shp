@@ -154,3 +154,4 @@ C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Debug\netcoreapp3.0\N
 C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\obj\Debug\netcoreapp3.0\GeoJSON2Shp.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\obj\Debug\netcoreapp3.0\GeoJSON2Shp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\obj\Debug\netcoreapp3.0\GeoJSON2Shp.csprojAssemblyReference.cache
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_TextArea.cshtml.g.cs
