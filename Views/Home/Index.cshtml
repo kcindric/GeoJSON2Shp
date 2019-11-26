@@ -35,7 +35,7 @@
                <div class="buttons">
                 <div class="upload-button">
                     <div class="label">Click me!</div>
-                    <input id="files" name="files" type="file" size="1" onchange="uploadFiles('files');" />
+                    <input id="files" name="files" type="file" size="1" @*onchange="uploadFiles('files');"*@ />
                 </div>
                 </div>
         </form>
@@ -55,8 +55,15 @@
 </div>
 
 <script>
-    var relativeFilePath;
-    function uploadFiles(inputId) {
+    var urlPost = "@Url.Action("Index", "Home")";
+    var urlGet = "@Url.Action("PathJson", "Home")";
+</script>
+<script>
+
+</script>
+
+@*<script>
+function uploadFiles(inputId) {
   var input = document.getElementById(inputId);
   var files = input.files;
         var formData = new FormData();
@@ -79,8 +86,7 @@
                   url: "@Url.Action("PathJson", "Home")",
                   type: "GET",
                   success: function (data) {
-                      relativeFilePath = data.filepath;
-                      shpToGeoJson(relativeFilePath);
+                      path = data.filepath;
                       alert("File uploaded!");
                   }
 
@@ -91,7 +97,7 @@
   );
 }
 
-</script>
+</script>*@
 
 <script>
     var filePath = "@filePath";

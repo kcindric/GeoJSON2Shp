@@ -86,7 +86,7 @@ function checkFeatureCollection(geojson) {
 }
 
 //shp to geojson
-$(document).ready(function () {
+$(document).ready(function (relativeFilePath) {
     var geojsonFromShp = null;
 
     if (relativeFilePath !== '') {
@@ -115,6 +115,38 @@ function shpToGeojson(relativeFilePath){
     }
 
 };
+
+//upload files
+$("#files").change(function (inputId) {
+    var input = document.getElementById("files");
+    var files = input.files;
+    var formData = new FormData();
+
+
+    for (var i = 0; i != files.length; i++) {
+        formData.append("files", files[i]);
+    }
+
+    $.ajax({
+        url: urlPost,
+        data: formData,
+        processData: false,
+        contentType: false,
+        type: "POST",
+        success: function (data) {
+            $.ajax({
+                url: urlGet,
+                type: "GET",
+                success: function (data) {
+                    path = data.filepath;
+                    shpToGeojson(path);
+                }
+
+
+            });
+        }
+    });
+});
 
 //show pasted geoJSON on map
 $("#convert").click(function () {
