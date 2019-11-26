@@ -12,13 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "browserify": "^16.5.0",
     "@mapbox/geojsonhint": "^3.0.0",
+    "browserify": "^16.5.0",
     "codemirror": "^5.49.2",
     "file-saver": "^2.0.2",
     "geojson-flatten": "^1.0.1",
     "leaflet-draw": "^1.0.4",
-    "npm": "^6.12.1"
+    "npm": "^6.12.1",
+    "shpjs": "^3.4.3"
   },
   "devDependencies": {
     "browserify": "^16.5.0",
