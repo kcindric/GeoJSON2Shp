@@ -151,10 +151,63 @@ $("#files").change(function () {
     
 });
 
+//uploadOGRE files and show them on the map
+$("#filesOGRE").change(function () {
+    var input = document.getElementById("filesOGRE");
+    var files = input.files;
+    var formData = new FormData();
+
+    for (var i = 0; i != files.length; i++) {
+        formData.append("upload", files[i]);
+    }
+
+    formData.append("targetSrs", "EPSG:4326");
+    $('#loading').show();
+
+    var everythingOk = false;
+    $.ajax({
+        url: 'https://ogre.adc4gis.com/convert',
+        data: formData,
+        processData: false,
+        contentType: false,
+        type: "POST",
+        success: function (data) {
+            var geojson = data;
+            var geojsonString = JSON.stringify(geojson);
+            if (geojsonString.toLowerCase().indexOf("multi") >= 0) {
+                console.log('multi');
+                let flatten = require('geojson-flatten');
+                var flattened = flatten(geojson);
+                checkFeatureCollection(flattened);
+                
+            }
+            //if geojson doesn't have multi shapes do the same thing but without flattening
+            else {
+                checkFeatureCollection(geojson);
+            }
+            $('#loading').hide();
+            $(".show-hide").show();
+            everythingOk = true;
+            
+        },
+        error: function (xhr) {
+            //do nothing, for now
+        },
+        complete: function () {
+            if (!everythingOk) {
+                alert("Failed!");
+                $('#loading').hide();
+            }
+        }
+    });
+
+
+});
+
 //show pasted geoJSON on map
 $("#convert").click(function () {
     if (editor.getValue() === '' || editor.getValue() === initGeoJsonStringBeautify) {
-        console.log("radi");
+        console.log("geojsonInput je prazan");
         return;
     }
     else {
@@ -173,7 +226,7 @@ $("#convert").click(function () {
         //check if it needs to be flattened if it has Multi type shapes
         //which aren't supported
         if (geojsonString.toLowerCase().indexOf("multi") >= 0) {
-            console.log('multi');
+            //console.log('geojson je multi');
             let flatten = require('geojson-flatten');
             var flattened = flatten(geojson);
             checkFeatureCollection(flattened);

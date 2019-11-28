@@ -9,7 +9,6 @@
     }
 }
 
-
 <div class="convert-wrapper row">
     <div class="paste-wrapper col-xl-5 col-md-12">
         <form>
@@ -17,30 +16,20 @@
                 <partial name="_TextArea" />
             </div>
         </form>
-        <button type="submit" class="btn btn-primary mb-2" id="convert">Convert</button>
+        <div class="buttons">
+            <button type="submit" class="btn btn-primary mb-2" id="convert">Convert</button>
+            <form id="form" action="/home/upload" enctype="multipart/form-data" method="post">
+                <div class="form-group">
+                    <div class="button-input-div">
+                        <label for="filesOGRE" class="custom-file-upload">Upload Shapefile</label>
+                        <input id="filesOGRE" name="files" type="file" size="1" class="hidden-input">
 
-        @*<form enctype="multipart/form-data" asp-controller="home" asp-action="upload" id="upload-form">*@
-        <form id="form" action="/home/upload" enctype="multipart/form-data" method="post">
-            <div class="form-group">
-                <div class="input-field">
-                    <div class="custom-file">
-                        <input id="files" name="files" type="file" size="1" class="form-control custom-file-input file-input">
-                        <label class="custom-file-label file-label">Choose .zip containing Shapefiles</label>
                     </div>
                 </div>
-            </div>
-            @*<button type="submit" class="btn btn-primary mb-2" id="upload">Upload SHP</button>*@
-        </form>
-
-        @*<form id="form" action="/home/upload" enctype="multipart/form-data" method="post">
-               <div class="buttons">
-                  <div class="upload-button">
-                     <div class="label">Click me!</div>
-                     <input id="files" name="files" type="file" size="1"/>
-                  </div>
-               </div>
-            </form>*@
+            </form>
+        </div>
     </div>
+
     <div class="map-wrapper col-xl-7 col-md-12">
         <div id="map"></div>
         <form>
@@ -61,43 +50,6 @@
 <script>
 
 </script>
-
-@*<script>
-    function uploadFiles(inputId) {
-      var input = document.getElementById(inputId);
-      var files = input.files;
-            var formData = new FormData();
-
-
-      for (var i = 0; i != files.length; i++) {
-        formData.append("files", files[i]);
-      }
-
-      $.ajax(
-        {
-          url: "@Url.Action("Index", "Home")",
-          data: formData,
-          processData: false,
-          contentType: false,
-          type: "POST",
-          success: function (data) {
-              $.ajax(
-                  {
-                      url: "@Url.Action("PathJson", "Home")",
-                      type: "GET",
-                      success: function (data) {
-                          path = data.filepath;
-                          alert("File uploaded!");
-                      }
-
-
-                  });
-          }
-        }
-      );
-    }
-
-    </script>*@
 
 <script>
     var filePath = "@filePath";

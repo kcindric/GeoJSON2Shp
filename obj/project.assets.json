@@ -9935,23 +9935,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kiki\\.nuget\\packages\\": {},
+    "C:\\Users\\kcindric\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kiki\\source\\repos\\GeoJSON2Shp\\GeoJSON2Shp.csproj",
+      "projectUniqueName": "C:\\Users\\kcindric\\source\\repos\\GeoJSON2Shp\\GeoJSON2Shp\\GeoJSON2Shp.csproj",
       "projectName": "GeoJSON2Shp",
-      "projectPath": "C:\\Users\\Kiki\\source\\repos\\GeoJSON2Shp\\GeoJSON2Shp.csproj",
-      "packagesPath": "C:\\Users\\Kiki\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kiki\\source\\repos\\GeoJSON2Shp\\obj\\",
+      "projectPath": "C:\\Users\\kcindric\\source\\repos\\GeoJSON2Shp\\GeoJSON2Shp\\GeoJSON2Shp.csproj",
+      "packagesPath": "C:\\Users\\kcindric\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kcindric\\source\\repos\\GeoJSON2Shp\\GeoJSON2Shp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Kiki\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kcindric\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10034,7 +10034,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   },
