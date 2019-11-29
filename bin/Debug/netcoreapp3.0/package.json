@@ -16,6 +16,7 @@
     "browserify": "^16.5.0",
     "codemirror": "^5.49.2",
     "file-saver": "^2.0.2",
+    "file-to-array-buffer": "^1.0.0",
     "geojson-flatten": "^1.0.1",
     "leaflet-draw": "^1.0.4",
     "npm": "^6.12.1",

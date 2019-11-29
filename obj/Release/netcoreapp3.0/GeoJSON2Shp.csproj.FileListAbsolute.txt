@@ -303,3 +303,14 @@ C:\Users\Kiki\source\repos\GeoJSON2Shp\obj\Release\netcoreapp3.0\GeoJSON2Shp.Vie
 C:\Users\Kiki\source\repos\GeoJSON2Shp\obj\Release\netcoreapp3.0\GeoJSON2Shp.csproj.CopyComplete
 C:\Users\Kiki\source\repos\GeoJSON2Shp\obj\Release\netcoreapp3.0\GeoJSON2Shp.dll
 C:\Users\Kiki\source\repos\GeoJSON2Shp\obj\Release\netcoreapp3.0\GeoJSON2Shp.pdb
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Release\netcoreapp3.0\System.Web.Mvc.dll
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Release\netcoreapp3.0\System.Web.Razor.dll
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Release\netcoreapp3.0\System.Web.Helpers.dll
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Release\netcoreapp3.0\System.Web.WebPages.Deployment.dll
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Release\netcoreapp3.0\System.Web.WebPages.Razor.dll
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Release\netcoreapp3.0\System.Web.WebPages.dll
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Release\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Release\netcoreapp3.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Release\netcoreapp3.0\Microsoft.Web.Infrastructure.dll
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Release\netcoreapp3.0\Newtonsoft.Json.Bson.dll
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\obj\Release\netcoreapp3.0\Razor\Views\Shared\_TextArea.cshtml.g.cs

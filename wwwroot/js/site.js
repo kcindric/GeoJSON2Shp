@@ -65,7 +65,6 @@ function beautifyAndAdd(geojson) {
 //if it isn't make it so!
 //also, beautify it in both cases
 function checkFeatureCollection(geojson) {
-
     if (geojson['type'].toLowerCase() === 'feature') {
         var emptyFeatureCollection = {
             "type": "FeatureCollection",
@@ -101,102 +100,155 @@ function shpToGeojson(relativeFilePath){
             }
         });
     }
-
 };
 
 //upload files and show them on the map
-$("#files").change(function () {
-    var input = document.getElementById("files");
-    var files = input.files;
-    var formData = new FormData();
+//$("#files").change(function () {
+//    var input = document.getElementById("files");
+//    var files = input.files;
+//    var formData = new FormData();
 
-    for (var i = 0; i != files.length; i++) {
-        formData.append("files", files[i]);
-    }
+//    for (var i = 0; i != files.length; i++) {
+//        formData.append("files", files[i]);
+//    }
 
-    $.ajax({
-        url: urlPost,
-        data: formData,
-        processData: false,
-        contentType: false,
-        type: "POST",
-        success: function (data) {
-            $.ajax({
-                url: urlGet,
-                type: "GET",
-                success: function (data) {
-                    path = data.filepath;
-                    var deletePath = path;
-                    shpToGeojson(path);
-                    $(".show-hide").show();
+//    $.ajax({
+//        url: urlPost,
+//        data: formData,
+//        processData: false,
+//        contentType: false,
+//        type: "POST",
+//        success: function (data) {
+//            $.ajax({
+//                url: urlGet,
+//                type: "GET",
+//                success: function (data) {
+//                    path = data.filepath;
+//                    var deletePath = path;
+//                    shpToGeojson(path);
+//                    $(".show-hide").show();
 
-                    $.ajax({
-                        url: urlDelete,
-                        data: {'deletePath': deletePath },
-                        type: "POST",
-                        success: function (data) {
-                            console.log("file deleted");
-                        }
-                    });
-                }
-            });
-        }
-    });
+//                    $.ajax({
+//                        url: urlDelete,
+//                        data: {'deletePath': deletePath },
+//                        type: "POST",
+//                        success: function (data) {
+//                            console.log("file deleted");
+//                        }
+//                    });
+//                }
+//            });
+//        }
+//    });
 
     
-});
+//});
+
+////uploadOGRE files and show them on the map
+//$("#filesOGRE").change(function () {
+//    var input = document.getElementById("filesOGRE");
+//    var files = input.files;
+//    var formData = new FormData();
+
+//    for (var i = 0; i != files.length; i++) {
+//        formData.append("upload", files[i]);
+//    }
+
+//    formData.append("skipFailures", "true");
+//    formData.append("targetSrs", "EPSG:4326");
+    
+//    $('#loading').show();
+
+//    var everythingOk = false;
+//    $.ajax({
+//        url: 'https://ogre.adc4gis.com/convert',
+//        data: formData,
+//        processData: false,
+//        contentType: false,
+//        type: "POST",
+//        success: function (data) {
+//            var geojson = data;
+//            var geojsonString = JSON.stringify(geojson);
+//            if (geojsonString.toLowerCase().indexOf("multi") >= 0) {
+//                console.log('multi');
+//                let flatten = require('geojson-flatten');
+//                var flattened = flatten(geojson);
+//                checkFeatureCollection(flattened);
+                
+//            }
+//            //if geojson doesn't have multi shapes do the same thing but without flattening
+//            else {
+//                checkFeatureCollection(geojson);
+//            }
+//            $('#loading').hide();
+//            $(".show-hide").show();
+//            everythingOk = true;
+            
+//        },
+//        error: function (xhr) {
+//            //do nothing, for now
+//        },
+//        complete: function () {
+//            if (!everythingOk) {
+//                alert("Failed!");
+//                $('#loading').hide();
+//            }
+//        }
+//    });
+
+
+//});
+
+const fileToArrayBuffer = require('file-to-array-buffer');
 
 //uploadOGRE files and show them on the map
 $("#filesOGRE").change(function () {
+
+ 
     var input = document.getElementById("filesOGRE");
     var files = input.files;
-    var formData = new FormData();
+    //$('#loading').show();
 
-    for (var i = 0; i != files.length; i++) {
-        formData.append("upload", files[i]);
-    }
+    fileToArrayBuffer(files[0]).then(function (data) {
+        console.log(data);
+        console.log('start');
+        shp(data).then(function (geojson) {
+            if (Array.isArray(geojson)) {
+                console.log('Array');
+                var emptyFeatureCollection = {
+                    "type": "FeatureCollection",
+                    "features": []
+                };
+                //append to initGeojson
+                for (var i = 0; i != geojson.length; i++) {
+                    emptyFeatureCollection['features'].push(geojson[i]['features'][0])
+                }
+                geojson = emptyFeatureCollection;
+            }
+            else {
+                console.log('Not array');
+                //continue as usual
+            }
 
-    formData.append("targetSrs", "EPSG:4326");
-    $('#loading').show();
-
-    var everythingOk = false;
-    $.ajax({
-        url: 'https://ogre.adc4gis.com/convert',
-        data: formData,
-        processData: false,
-        contentType: false,
-        type: "POST",
-        success: function (data) {
-            var geojson = data;
             var geojsonString = JSON.stringify(geojson);
             if (geojsonString.toLowerCase().indexOf("multi") >= 0) {
                 console.log('multi');
                 let flatten = require('geojson-flatten');
                 var flattened = flatten(geojson);
                 checkFeatureCollection(flattened);
-                
+
             }
             //if geojson doesn't have multi shapes do the same thing but without flattening
             else {
                 checkFeatureCollection(geojson);
             }
-            $('#loading').hide();
-            $(".show-hide").show();
-            everythingOk = true;
             
-        },
-        error: function (xhr) {
-            //do nothing, for now
-        },
-        complete: function () {
-            if (!everythingOk) {
-                alert("Failed!");
-                $('#loading').hide();
-            }
-        }
+        });
     });
 
-
+    //$('#loading').hide();
+    $(".show-hide").show();
+    console.log('end');
 });
 
 //show pasted geoJSON on map
