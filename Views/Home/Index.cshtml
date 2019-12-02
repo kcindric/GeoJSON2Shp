@@ -1,12 +1,7 @@
-﻿@model IDictionary<string, string>
+﻿
 
 @{
     ViewData["Title"] = "GeoJSON2Shp";
-    string filePath = null;
-    if (ViewBag.FilePath != null)
-    {
-        filePath = ViewBag.FilePath.Replace(@"\", @"/");
-    }
 }
 
 <div class="convert-wrapper row">
@@ -42,15 +37,17 @@
     </div>
 </div>
 
-<script>
-    var urlPost = "@Url.Action("Index", "Home")";
-    var urlGet = "@Url.Action("PathJson", "Home")";
-    var urlDelete = "@Url.Action("Delete", "Home")";
-</script>
-<script>
+<div class="how-to">
+    <h3>How to use</h3>
+    <p>You have 3 options on how to use this tool:</p>
+    <ul class="icon">
+        <li>Draw on the map</li>
+        <li>Paste a GeoJSON string in the editor and convert it. Later you can edit it on the map or code editor. (<a href="~/files/exampleGEOJSON.txt">example</a>)</li>
+        <li>
+            Upload a ziped ESRI Shapefile that contains the folowing files: .shp, .dbf, and .shx (.prj optional). Only ziped files are currently supported. (<a href="~/files/exampleSHP.zip">example</a>)
+            <br /><b>CAUTION:</b> huge Shapefiles are not supported and will probably freeze the app.
+        </li>
+    </ul>
+    <p>Everything you create/edit you can download as a ESRI Shapefile using the Download button.</p>
+</div>
 
-</script>
-
-<script>
-    var filePath = "@filePath";
-</script>
