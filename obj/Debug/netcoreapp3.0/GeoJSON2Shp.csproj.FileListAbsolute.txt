@@ -151,8 +151,6 @@ C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Debug\netcoreapp3.0\M
 C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
-C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\obj\Debug\netcoreapp3.0\GeoJSON2Shp.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\obj\Debug\netcoreapp3.0\GeoJSON2Shp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\obj\Debug\netcoreapp3.0\GeoJSON2Shp.csprojAssemblyReference.cache
 C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_TextArea.cshtml.g.cs
 C:\Users\Kiki\source\repos\GeoJSON2Shp\bin\Debug\netcoreapp3.0\appsettings.Development.json
@@ -314,3 +312,7 @@ C:\Users\Kiki\source\repos\GeoJSON2Shp\obj\Debug\netcoreapp3.0\GeoJSON2Shp.Views
 C:\Users\Kiki\source\repos\GeoJSON2Shp\obj\Debug\netcoreapp3.0\GeoJSON2Shp.csproj.CopyComplete
 C:\Users\Kiki\source\repos\GeoJSON2Shp\obj\Debug\netcoreapp3.0\GeoJSON2Shp.dll
 C:\Users\Kiki\source\repos\GeoJSON2Shp\obj\Debug\netcoreapp3.0\GeoJSON2Shp.pdb
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Debug\netcoreapp3.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\obj\Debug\netcoreapp3.0\GeoJSON2Shp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\kcindric\source\repos\GeoJSON2Shp\GeoJSON2Shp\obj\Debug\netcoreapp3.0\GeoJSON2Shp.MvcApplicationPartsAssemblyInfo.cache
